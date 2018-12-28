@@ -5,11 +5,11 @@
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-char* ssid = "kvlan2017";
+char* ssid = "WiFiName";
 
-char* password = "covada6164";
+char* password = "WiFi Password";
 
-char* mqtt_server = "192.168.1.107";
+char* mqtt_server = "Mqtt host IP address";
 
 //INSTANTIATE
 gngWiFi WIFI_ONE(espClient,client,ssid,password,mqtt_server);
