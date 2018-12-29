@@ -22,6 +22,7 @@ class gngWiFi {
     char _d1[300]; // send to the browser
     char _d2[300]; // send to the browser
     char _d3[300]; // send to the browser
+    char _d4[300]; // send to the browser
   
   public:
     gngWiFi(WiFiClient espClient3, PubSubClient client3, char* ssid3, char* password3, char* mqtt_server3);
@@ -29,11 +30,12 @@ class gngWiFi {
     static const int D_SET1=1;
     static const int D_SET2=2;
     static const int D_SET3=3;
+    static const int D_SET4=4;
     
     void wifiSetup();
     void callback(char* topic, byte* payload, unsigned int length);
     void reconnect();
-    void publishData(double data, int set);
-
+    void publishDataDouble(double data, int set);
+    void publishDataString(String str, int set);
 };
 #endif
