@@ -5,11 +5,11 @@
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-char* ssid = "WiFiName";
+char* ssid = "WiFi_Name";
 
-char* password = "WiFi Password";
+char* password = "WiFi_Password";
 
-char* mqtt_server = "Mqtt host IP address";
+char* mqtt_server = "mqtt_host_IP_address";
 
 //INSTANTIATE
 gngWiFi WIFI_ONE(espClient,client,ssid,password,mqtt_server);
@@ -27,9 +27,7 @@ void loop() {
   D2=random(-600,600);
   D3=random(-600,600);
   Serial.println(D1);
-  WIFI_ONE.publishData(D1,gngWiFi::D_SET1);
-  WIFI_ONE.publishData(D2,gngWiFi::D_SET2);
-  WIFI_ONE.publishData(D3,gngWiFi::D_SET3);
+  String DATA= (String)D1+","+(String)D2+","+(String)D3+",";
+  WIFI_ONE.publishDataString(DATA, gngWiFi::D_SET4);
   delay(50);
-
 }
