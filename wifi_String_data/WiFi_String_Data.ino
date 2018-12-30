@@ -27,7 +27,7 @@ void loop() {
   D2=random(-600,600);
   D3=random(-600,600);
   Serial.println(D1);
-  String DATA= (String)D1+","+(String)D2+","+(String)D3+",";
+  String DATA = (String)D1+","+(String)D2+","+(String)D3;
   WIFI_ONE.publishDataString(DATA, gngWiFi::D_SET4);
-  delay(50);
+  delay(100);
 }
