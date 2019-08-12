@@ -84,7 +84,7 @@ void gngWiFi::callback(char* topic, byte* payload, unsigned int length) {
 
 }
 
-void gngWiFi::publishDataDouble(double data, int set){
+/*void gngWiFi::publishDataDouble(double data, int set){
   if (!client1.connected()) {
     reconnect();
   }
@@ -110,29 +110,15 @@ void gngWiFi::publishDataDouble(double data, int set){
     Data.toCharArray(_d4, 300);
     client1.publish("/test6",_d4);
   }
-}
+}*/
 
-void gngWiFi :: publishDataString(String str, int set) {
+void gngWiFi :: publishDataString(String str,char* topic) {
   
   if (!client1.connected()) {
     reconnect();
   }
   client1.loop();
   
-  if(set==D_SET4){
-    str.toCharArray(_d4, 300);
-    client1.publish("/test6", _d4);
-  }
-  if(set==D_SET3){
-    str.toCharArray(_d3, 300);
-    client1.publish("/test5", _d3);
-  }
-  if(set==D_SET2){
-    str.toCharArray(_d2, 300);
-    client1.publish("/test4", _d2);
-  }
-  if(set==D_SET1){
-    str.toCharArray(_d1, 300);
-    client1.publish("/test3", _d1);
-  }
+  str.toCharArray(_d, 300);
+  client1.publish(topic, _d);
 }
